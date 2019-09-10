@@ -11,7 +11,7 @@ export class ChatComponent implements OnInit {
   mensaje : String;
   infoPaginaBase: string[] = [
     '',
-    'Exámenes para residencias',
+    'CHAT RESIDENCIAS',
     'reg_residencias',
     'reg_residencias',
     'Para información sobre los distintos concursos de residencias consulte la web del <a href="http://www.msal.gov.ar/residencias" target="_blank">Ministerio de Salud de la Nación</a>'
@@ -37,7 +37,7 @@ export class ChatComponent implements OnInit {
   login(provedor: String)
   {
     //this.servicioChat.login(provedor)
-    this.servicioChat.loginFace(provedor);
+    this.servicioChat.login(provedor);
   }
 
   logOut()

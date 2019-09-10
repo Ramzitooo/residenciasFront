@@ -36,7 +36,11 @@ export class ResidenciasComponent implements OnInit {
 
   open()
   {
-    this.snak.open("📧 Codigo alfanumerico enviado a gpereyra@gmail.com !" ,'Undo', {
+    //this.snak.open("📧 Codigo alfanumerico enviado a gpereyra@gmail.com !" ,'Undo', {
+     // duration: 3000
+    //});
+
+    this.snak.open("📧 Codigo alfanumerico enviado a gpereyra@gmail.com !" ,'', {
       duration: 3000
     });
   }

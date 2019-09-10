@@ -16,7 +16,9 @@ ul.residenciasMenu > li{
 ul.residenciasMenu > li > a{ 
     text-align: center;
     padding: 20px;
-    border-radius: 4px;
+    border-radius: 10px;
+    height: 200px;
+    width: 200px;
     box-shadow: 0 1px 4px rgba(0,0,0,.5) !important; 
     /* border: dotted olivedrab 1px; */
     color: #3fa0d9 !important;
@@ -26,7 +28,9 @@ ul.residenciasMenu > li > a:hover{
     color: white;
     background-color: #3fa0d9;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 10px;
+    height: 210px;
+    width: 210px;
     box-shadow: 0 0 20px #3fa0d9 !important;
     transition: 0.7s; 
 }

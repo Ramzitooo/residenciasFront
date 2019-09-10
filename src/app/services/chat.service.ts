@@ -61,7 +61,24 @@ export class ChatService
 
   login(proveedor: String) {
     this.afAuth.auth.signOut();
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+
+    switch (proveedor) {
+      case "google":
+      this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+        break;
+
+        case "facebook":
+      this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider());
+        break;
+
+        case "twitter":
+      this.afAuth.auth.signInWithPopup(new auth.TwitterAuthProvider());
+        break;
+    
+      default:
+        break;
+    }
+    
   }
   logout() {
     this.afAuth.auth.signOut();

@@ -36,6 +36,7 @@ import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import {MatChipsModule} from '@angular/material/chips';
     AngularFirestoreModule,
     AngularFireStorageModule,
     FormsModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,MatTableModule,
     AngularFireAuthModule,
     MatCardModule,
     HttpClientModule,

@@ -6,6 +6,8 @@ import { ResidenciasResidenteModel } from 'src/app/models/residencias_residente'
 //  Servicios
 import { ResidenciasService } from 'src/app/services/residencias.service';
 
+import { Residente} from '../../../interface/mensaje.interface'
+
 
 @Component({
   selector: 'app-consultas',
@@ -32,14 +34,16 @@ export class ConsultasComponent implements OnInit {
   //  Variables particulares . . . . . . . . . . . . . . . . . . . . .
   residentes: ResidenciasResidenteModel[];
   //residents: ResidenciasResidenteModel[];
-  residents: any[];
+  public residents: Residente[];
+  public displayedColumns = ['id', 'apellido', 'nombre', 'ndoc'];
+  public dataSource : Residente[];
   //residents: Array<ResidenciasResidenteModel> = new Array<ResidenciasResidenteModel>();
 
   constructor(private residenciasService: ResidenciasService) { }
-
+  
   ngOnInit() 
   {
-    //this.residenciasService.residentesObtieneTodos().subscribe(data => this.residentes = data);
+    this.residenciasService.residentesObtieneTodos().subscribe(data => this.residentes = data);
 
     console.log("RAMZITO");
     this.residenciasService.TraerResidentes().toPromise().
@@ -55,7 +59,8 @@ export class ConsultasComponent implements OnInit {
         console.log(e);
       });
 
-
+      
+      this.dataSource = this.residents;
       
 
   }

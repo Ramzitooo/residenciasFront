@@ -31,14 +31,14 @@
 
       </div>
       
-      <ul  *ngFor="let item of residents" class="list-group">
+      <!-- <ul  *ngFor="let item of residents" class="list-group">
         <li class="list-group-item list-group-item-success">{{item.ndoc}} - {{item.apellido}} {{item.nombre}} {{item.paisnacimiento}}</li>
-      </ul>
+      </ul> -->
 
 
       <app-c-commons-lista></app-c-commons-lista>
       
-      <div class="listado">
+      <!-- <div class="listado">
         
         <div *ngFor="let residente of residentes" class="fila">
           <div>{{residente.id}}</div>
@@ -53,10 +53,40 @@
             <div class="al"><span class="icon-askeletor"></span></div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
-      <p> -> {{residentes |json}}</p>
+      <div class="example-container mat-elevation-z8">
+          <table mat-table [dataSource]="residents">
+        
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="apellido">
+              <th mat-header-cell *matHeaderCellDef> Apellido </th>
+              <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+            </ng-container>
+        
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="ndoc">
+              <th mat-header-cell *matHeaderCellDef> DNI </th>
+              <td mat-cell *matCellDef="let element"> {{element.ndoc}} </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
 
 
     </div>
