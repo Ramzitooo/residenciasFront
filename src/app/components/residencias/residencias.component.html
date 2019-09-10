@@ -1,0 +1,114 @@
+<app-paginabase [info]="infoPaginaBase"></app-paginabase>
+
+
+<div class="container">
+
+
+  <div class="row">
+    <ul class="col-12 residenciasMenu">
+      
+      <li>
+        <!--<a routerLink="/inscripcion"> -->
+          <a routerLink="/inscripcion" routerLinkActive="active">
+          <div class="icono">
+            <span class="icon-bot_ico_editar"></span>
+          </div>
+          <h2>Pre-inscripción</h2>
+          <h4>Concurso de Residencias</h4>
+        </a>
+
+      </li>
+
+      <li>
+        <a routerLink="/consultas">
+          <div class="icono">
+            <span class="icon-bot_ico_auditoriaconsultar"></span>
+          </div>
+          <h2>Consultas</h2>
+          <h4>Concurso de Residencias</h4>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/consultas">
+          <div class="icono">
+            <span class="icon-bot_ico_buscar"></span>
+          </div>
+          <h2>Consultas</h2>
+          <h4>Concurso de Residencias</h4>
+        </a>
+      </li>
+
+    </ul>
+
+
+
+    
+  </div>
+
+  <div class="row">
+    <ul class="col-12 residenciasMenu">
+      
+      <li>
+        <!--<a routerLink="/inscripcion"> -->
+          <a routerLink="/inscripcion" routerLinkActive="active">
+          <div class="icono">
+            <span class="icon-bot_ico_explorar"></span>
+          </div>
+          <h2>Pre-inscripción</h2>
+          <h4>Concurso de Residencias</h4>
+        </a>
+
+      </li>
+
+      <li>
+        <a routerLink="/consultas">
+          <div class="icono">
+            <span class="icon-bot_ico_imprimir"></span>
+          </div>
+          <h2>Consultas</h2>
+          <h4>Concurso de Residencias</h4>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/chat">
+          <div class="icono">
+            <span class="icon-bot_ico_archivo_pdf"></span>
+          </div>
+          <h2>Consultas</h2>
+          <h4>Concurso de Residencias</h4>
+        </a>
+      </li>
+
+    </ul>
+
+    <button mat-raised-button color="warn" (click)="open()">Warn</button>
+    
+    <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+
+    <mat-form-field>
+      <mat-label>Favorite food</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    
+  </div>
+
+  <div *ngIf="loading" class="LockOn">
+  
+    <div  class="parent">
+        
+         <div class="loader"></div><br>
+
+      
+      </div>
+</div>
+  
+
+</div>
+

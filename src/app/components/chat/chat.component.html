@@ -1,0 +1,31 @@
+<app-paginabase [info]="infoPaginaBase"></app-paginabase>
+
+<div class="container main-container">
+
+        <button type="button" class="btn btn-success" (click)="login('google')">GOOGLE</button>
+        <button type="button" class="btn btn-primary" (click)="login('facebook')">FACEBOOK</button>
+        <button type="button" class="btn btn-info" (click)="login('twiter')">TWITER</button>
+        <button type="button" class="btn btn-danger" (click)="logOut()">LOGOUT</button>
+
+    <div class="chat-window">
+        <div class="app-mensajes" id="app-mensajes">
+
+            <div class="text-right" *ngFor="let item of servicioChat.chats">
+                <h1><span class="badge badge-primary">{{item.nombre}}</span></h1>
+                <p>{{item.mensaje}}</p>
+            </div>
+
+            
+        </div>
+        
+            <input type="text" name="mensaje" [(ngModel)]='mensaje' class="form-control"
+                (keyup.enter)='enviarMensaje()'>
+        
+
+
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)='verMensajes()'>Ver Mensajes</button>
+
+
+</div>

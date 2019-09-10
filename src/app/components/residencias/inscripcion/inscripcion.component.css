@@ -1,0 +1,6 @@
+.list-group-item:hover
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transition: 0.7s;
+}
