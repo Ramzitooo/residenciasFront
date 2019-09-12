@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {FormControl, Validators} from '@angular/forms';
 export interface Food {
   value: string;
   viewValue: string;
@@ -28,10 +29,19 @@ export class ResidenciasComponent implements OnInit {
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
 
+
+  email = new FormControl('', [Validators.required, Validators.email]);
+
   constructor(private snak:MatSnackBar) { }
 
   ngOnInit() {
     this.Fuc1();
+  }
+
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+        this.email.hasError('email') ? 'Not a valid email' :
+            '';
   }
 
   open()

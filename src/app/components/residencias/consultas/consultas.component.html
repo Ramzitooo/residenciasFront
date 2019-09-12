@@ -1,63 +1,32 @@
 <app-paginabase [info]="infoPaginaBase"></app-paginabase>
 
+
+
+
+
+
 <div class="container">
-  <div class="row">
-    <div class="col-12 Formulario">
 
 
+  <form class="example-form" [style.fontSize.px]="30">
+    <mat-form-field class="example-full-width">
+      <input matInput type="number" placeholder="Ingrese DNI" >
+    </mat-form-field>
+
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" formControlname="emailFormControl" required>
+      <mat-error *ngIf="emailFormControl.invalid">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
 
 
-
-
-      <!-- <form #formConsulta="ngForm" class="col-12"> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-      <form class="col-12">
-
-      <div class="buscador">
-        <div class="w50_">
-          <input type="text" placeholder="Ingrese código" name="dato">
-        </div>
-        <div class="w50_">
-          <app-c-comons-botonctextoeicono [infoBoton]="botones.buscar" (click)="consultarPreinscripcionConsulta(dato)"></app-c-comons-botonctextoeicono>
-        </div>
-      </div>
-
-      </form>
-
-      <div *ngIf="consultarInscripcionResultado === true" class="respuesta">
-        {{t_resultado | json }}
-        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                              <s-commons-lista [idLista]='t_resultado' class="row"></s-commons-lista>
-                           -->
-
-      </div>
-      
-      <!-- <ul  *ngFor="let item of residents" class="list-group">
-        <li class="list-group-item list-group-item-success">{{item.ndoc}} - {{item.apellido}} {{item.nombre}} {{item.paisnacimiento}}</li>
-      </ul> -->
-
-
-      <app-c-commons-lista></app-c-commons-lista>
-      
-      <!-- <div class="listado">
-        
-        <div *ngFor="let residente of residentes" class="fila">
-          <div>{{residente.id}}</div>
-          <div>{{residente.apellido}}</div>
-          <div>{{residente.nombre}}</div>
-          <div>{{residente.tipodoc}}</div>
-          <div>{{residente.ndoc}}</div>
-          <div>{{residente.paisnacimiento}}</div>
-          <div class="acciones">
-            <div class="al"><span class="icon-bot_ico_acceder_ver"></span></div>
-            <div class="al"><span class="icon-bot_ico_cancelar"></span></div>
-            <div class="al"><span class="icon-askeletor"></span></div>
-          </div>
-        </div>
-      </div> -->
-
-
-      <div class="example-container mat-elevation-z8">
-          <table mat-table [dataSource]="residents">
+      <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="listData">
         
             <!-- Position Column -->
             <ng-container matColumnDef="id">
@@ -86,9 +55,9 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
         </div>
 
 
-    </div>
-  </div>
+    
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild } from '@angular/core';
 
 //  Modelo
 import { ResidenciasResidenteModel } from 'src/app/models/residencias_residente';
@@ -7,6 +7,10 @@ import { ResidenciasResidenteModel } from 'src/app/models/residencias_residente'
 import { ResidenciasService } from 'src/app/services/residencias.service';
 
 import { Residente} from '../../../interface/mensaje.interface'
+
+import {MatPaginator} from '@angular/material/paginator';
+import {FormControl, Validators} from '@angular/forms';
+import {MatTableDataSource} from '@angular/material/table';
 
 
 @Component({
@@ -31,19 +35,30 @@ export class ConsultasComponent implements OnInit {
     buscar: ['boton_general', 'bot_ico_buscar', 'Buscar inscripción']
   };
 
+
+  emailFormControl = new FormControl('', [Validators.required,Validators.email,]);
+
   //  Variables particulares . . . . . . . . . . . . . . . . . . . . .
   residentes: ResidenciasResidenteModel[];
   //residents: ResidenciasResidenteModel[];
   public residents: Residente[];
   public displayedColumns = ['id', 'apellido', 'nombre', 'ndoc'];
-  public dataSource : Residente[];
+  //public dataSource : Residente[];
+
+  dataSource = new MatTableDataSource<Residente>(this.residents);
+  listData : MatTableDataSource<Residente>;
+  //dataSource.paginator = this.paginator;
+  options:Boolean = true;
+
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  
+
   //residents: Array<ResidenciasResidenteModel> = new Array<ResidenciasResidenteModel>();
 
-  constructor(private residenciasService: ResidenciasService) { }
-  
   ngOnInit() 
   {
-    this.residenciasService.residentesObtieneTodos().subscribe(data => this.residentes = data);
+    //this.residenciasService.residentesObtieneTodos().subscribe(data => this.residentes = data);
 
     console.log("RAMZITO");
     this.residenciasService.TraerResidentes().toPromise().
@@ -51,7 +66,10 @@ export class ConsultasComponent implements OnInit {
       {
         console.log("Datos de ramzito");
         this.residents = data;
+        this.listData = new MatTableDataSource(data);
+        this.listData.paginator = this.paginator;
         console.log(data);
+        
       })
     .catch(e => 
       {
@@ -59,10 +77,22 @@ export class ConsultasComponent implements OnInit {
         console.log(e);
       });
 
+
+
       
-      this.dataSource = this.residents;
+      
       
 
   }
+  constructor(private residenciasService: ResidenciasService) 
+  { 
+    
+    
+
+
+      //setTimeout(() => this.dataSource.paginator = this.paginator);
+  }
+  
+
 
 }

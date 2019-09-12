@@ -84,6 +84,15 @@
     </ul>
 
     <button mat-raised-button color="warn" (click)="open()">Test SnakBar</button>
+
+
+
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Enter your email" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
     
     <!-- <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon> -->
 

@@ -33,10 +33,18 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { ChatComponent } from './components/chat/chat.component';
 import { FormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
+import { ReactiveFormsModule} from '@angular/forms';//IMPORTANTE!!!
+import {MatRadioModule} from '@angular/material/radio';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -57,22 +65,26 @@ import {MatTableModule} from '@angular/material/table';
   imports: [
     BrowserModule,
     MatSnackBarModule,
+    MatInputModule,
+    MatNativeDateModule,
     AngularFirestoreModule,
-    AngularFireStorageModule,
-    FormsModule,
+    AngularFireStorageModule,ReactiveFormsModule,
+    MatDatepickerModule,
+    FormsModule,MatRadioModule,MatTooltipModule,
     BrowserAnimationsModule,MatTableModule,
     AngularFireAuthModule,
     MatCardModule,
-    HttpClientModule,
+    HttpClientModule,MatFormFieldModule,
     MatListModule,
     MatChipsModule,
     MatButtonModule,
     MatSelectModule,
+    MatPaginatorModule,
     AngularFireModule.initializeApp(environment.firebase),
     MatIconModule,
     AppRoutingModule
   ],
-  providers: [ChatService],
+  providers: [ChatService,MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

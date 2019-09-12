@@ -1,11 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-inscripcion',
   templateUrl: './inscripcion.component.html',
-  styleUrls: ['./inscripcion.component.css']
+  styleUrls: ['./inscripcion.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class InscripcionComponent implements OnInit {
+
+  usuario:any= 
+  {
+    nombre:'sss',
+  };
+
+  text:any;
 
   infoPaginaBase: string[] = [
     '',
@@ -21,6 +29,15 @@ export class InscripcionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.text='sss';
   }
+
+  changeUpperCase(textToUpper: string){
+    ///console.log("textToUpper: "+ textToUpper); 
+    this.usuario.nombre = textToUpper.toUpperCase();   
+    this.text = textToUpper.toUpperCase();   
+
+}
+
 
 }

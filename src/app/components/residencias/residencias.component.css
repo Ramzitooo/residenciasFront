@@ -7,6 +7,14 @@ ul.residenciasMenu{
     margin: 40px 0px;
     /* border: dotted dodgerblue 1px; */
 }
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
 ul.residenciasMenu > li{ 
     display: flex; 
     flex-direction: column; 
